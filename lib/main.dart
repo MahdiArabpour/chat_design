@@ -1,3 +1,5 @@
+import 'features/chat/presentation/global/themes/app_themes.dart';
+
 import 'features/chat/presentation/pages/chat_page/chat_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +16,7 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Myelin',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppThemes.light,
       supportedLocales: AppSupportedLocales.all,
       localizationsDelegates: AppLocalizations.delegates,
       localeResolutionCallback: AppLocalizations.localeResolutionCallback,
