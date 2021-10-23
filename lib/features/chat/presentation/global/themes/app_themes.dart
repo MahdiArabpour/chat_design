@@ -1,3 +1,4 @@
+import 'package:chat_design/features/chat/presentation/global/themes/app_fonts.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppThemes {
@@ -30,6 +31,7 @@ abstract class AppThemes {
           onError: Colors.white,
           brightness: brightness,
         ),
+        textTheme: AppFonts.textTheme,
         shadowColor: accentColor,
         errorColor: errorColor,
         backgroundColor: backgroundColor,

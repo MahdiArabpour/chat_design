@@ -6,7 +6,7 @@ class SendBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const radius = Radius.circular(30.0);
+    const radius = Radius.circular(20.0);
     final themeData = Theme.of(context);
     final localizations = AppLocalizations.of(context);
     return  Container(
@@ -34,7 +34,7 @@ class SendBox extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 shape: const CircleBorder(),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: IconButton(
                     highlightColor: Colors.transparent,
                     onPressed: (){},
@@ -68,7 +68,7 @@ class SendBox extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               shape: const CircleBorder(),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(16.0),
                 child: IconButton(
                   onPressed: (){},
                   highlightColor: Colors.transparent,

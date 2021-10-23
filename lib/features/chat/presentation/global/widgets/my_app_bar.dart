@@ -11,6 +11,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? subtitle;
   final bool? backButton;
   final bool blur;
+
   const MyAppBar({
     Key? key,
     this.actions,
@@ -44,7 +45,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 if (hasBackButton) ...[
                   MyButton(
-                    child: const Icon(Icons.arrow_back_ios_rounded),
+                    child: const Icon(
+                      Icons.arrow_back_ios_rounded,
+                      size: 20.0,
+                    ),
                     onTap: () {
                       debugPrint("backButtonPressed");
                     },
@@ -55,18 +59,16 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ],
                 if (profileImg != null)
                   DecoratedBox(
-                    decoration:  BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: themeData.colorScheme.secondary,
-                          offset: const Offset(0.0, 24.0),
-                          blurRadius: 30.0,
-                        ),
-                      ]
-                    ),
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: themeData.colorScheme.secondary,
+                        offset: const Offset(0.0, 24.0),
+                        blurRadius: 30.0,
+                      ),
+                    ]),
                     child: ClipRRect(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: profileImg ?? const SizedBox(),
                       ),
                       borderRadius:
@@ -81,16 +83,25 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title ?? "",
-                        style: themeData.textTheme.headline6,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          title ?? "",
+                          style: themeData.textTheme.headline5,
+                        ),
                       ),
-                      Text(
-                        subtitle ?? "",
-                        style: themeData.textTheme.caption,
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          subtitle ?? "",
+                          style: themeData.textTheme.caption,
+                        ),
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  width: 12.0,
                 ),
               ],
             ),

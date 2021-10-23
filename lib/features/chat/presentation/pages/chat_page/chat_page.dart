@@ -20,18 +20,9 @@ class ChatPage extends StatelessWidget {
 
     const messages = [
       Message(
-        date: "۱۹ اردیبهشت ۱۴۰۰",
-      ),
-      Message(
-        isMyMessage: true,
-        text: "سلام خوبی؟",
-        time: "۱۴:۳۰",
-      ),
-      Message(
-        isMyMessage: true,
-        text:
-            "هویج، یک ریشه گیاهی دارد که اغلب ادعا می‌شود برای سلامتی، یک غذای کامل است. هویج، ترد خوشمزه و سرشار از مواد مغذی میباشد.",
-        time: "۱۴:۳۰",
+        isMyMessage: false,
+        text: "سلام خوبم تو خوبی؟",
+        time: "۱۴:۳۱",
       ),
       Message(
         imagePath: "assets/images/img1.png",
@@ -39,30 +30,68 @@ class ChatPage extends StatelessWidget {
         time: "۱۴:۳۱",
       ),
       Message(
+        isMyMessage: true,
+        text:
+        "هویج، یک ریشه گیاهی دارد که اغلب ادعا می‌شود برای سلامتی، یک غذای کامل است. هویج، ترد خوشمزه و سرشار از مواد مغذی میباشد.",
+        time: "۱۴:۳۰",
+      ),
+      Message(
+        isMyMessage: true,
+        text: "سلام خوبی؟",
+        time: "۱۴:۳۰",
+      ),
+      Message(
+        date: "۱۹ اردیبهشت ۱۴۰۰",
+      ),
+      Message(
         isMyMessage: false,
         text: "سلام خوبم تو خوبی؟",
         time: "۱۴:۳۱",
       ),
+      Message(
+        imagePath: "assets/images/img1.png",
+        isMyMessage: false,
+        time: "۱۴:۳۱",
+      ),
+      Message(
+        isMyMessage: true,
+        text:
+        "هویج، یک ریشه گیاهی دارد که اغلب ادعا می‌شود برای سلامتی، یک غذای کامل است. هویج، ترد خوشمزه و سرشار از مواد مغذی میباشد.",
+        time: "۱۴:۳۰",
+      ),
+      Message(
+        isMyMessage: true,
+        text: "سلام خوبی؟",
+        time: "۱۴:۳۰",
+      ),
+      Message(
+        date: "۱۹ اردیبهشت ۱۴۰۰",
+      ),
     ];
+
+    final appBar = MyAppBar(
+      backButton: true,
+      profileImg: Image.asset("assets/images/person_img.png"),
+      title: localizations.translate("person_name"),
+      subtitle: localizations.translate("last_seen"),
+      actions: [
+        MyButton(
+          onTap: () {
+            debugPrint("more button clicked");
+          },
+          child: const Icon(
+            Icons.more_vert,
+            size: 20.0,
+          ),
+        ),
+      ],
+    );
 
     return DismissibleFocus(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
-        appBar: MyAppBar(
-          backButton: true,
-          profileImg: Image.asset("assets/images/person_img.png"),
-          title: localizations.translate("person_name"),
-          subtitle: localizations.translate("last_seen"),
-          actions: [
-            MyButton(
-              onTap: () {
-                debugPrint("more button clicked");
-              },
-              child: const Icon(Icons.more_vert),
-            ),
-          ],
-        ),
+        appBar: appBar,
         body: Container(
           height: mediaQueryData.size.height,
           width: mediaQueryData.size.width,
@@ -86,6 +115,15 @@ class ChatPage extends StatelessWidget {
                   ),
                   itemCount: messages.length,
                   shrinkWrap: true,
+                  reverse: true,
+                  padding: EdgeInsets.only(
+                    left: 40.0,
+                    right: 40.0,
+                    top: appBar.preferredSize.height +
+                        mediaQueryData.padding.top +
+                        24.0,
+                    bottom: 8.0,
+                  ),
                 ),
               ),
               const SendBox(),

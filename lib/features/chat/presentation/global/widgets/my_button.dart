@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 class MyButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onTap;
+  final String? tooltip;
 
-  const MyButton({Key? key, required this.child, required this.onTap})
-      : super(key: key);
+  const MyButton({
+    Key? key,
+    required this.child,
+    required this.onTap,
+    this.tooltip,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +31,10 @@ class MyButton extends StatelessWidget {
           color: Colors.transparent,
           shape: SquircleBorder(
             side:
-                BorderSide(color: themeData.colorScheme.background, width: 3.0),
+                BorderSide(color: themeData.colorScheme.background, width: 2.0),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(6.0),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 boxShadow: [
