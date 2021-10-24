@@ -36,6 +36,7 @@ class SendBox extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: IconButton(
+                    tooltip: localizations.translate("send"),
                     highlightColor: Colors.transparent,
                     onPressed: (){},
                     icon: Icon(
@@ -71,6 +72,7 @@ class SendBox extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: IconButton(
                   onPressed: (){},
+                  tooltip: localizations.translate("emojis"),
                   highlightColor: Colors.transparent,
                   icon: Icon(
                     Icons.emoji_emotions_outlined,

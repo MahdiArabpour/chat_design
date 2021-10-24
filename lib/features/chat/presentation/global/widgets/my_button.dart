@@ -12,8 +12,7 @@ class MyButton extends StatelessWidget {
     this.tooltip,
   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildButton(BuildContext context) {
     final themeData = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
@@ -52,6 +51,18 @@ class MyButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (tooltip != null) {
+      return Tooltip(
+        message: tooltip ?? "",
+        enableFeedback: false,
+        child: _buildButton(context),
+      );
+    }
+    return _buildButton(context);
   }
 }
 

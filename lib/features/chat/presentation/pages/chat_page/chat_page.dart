@@ -79,6 +79,7 @@ class ChatPage extends StatelessWidget {
           onTap: () {
             debugPrint("more button clicked");
           },
+          tooltip: localizations.translate("options"),
           child: const Icon(
             Icons.more_vert,
             size: 20.0,
@@ -98,11 +99,11 @@ class ChatPage extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                themeData.colorScheme.secondary.withOpacity(0.5),
+                themeData.colorScheme.secondary.withOpacity(0.2),
                 themeData.colorScheme.secondaryVariant,
               ],
               end: Alignment.bottomLeft,
-              stops: const [0.4, 1.0],
+              stops: const [0.45, 1.0],
               begin: Alignment.topRight,
             ),
           ),

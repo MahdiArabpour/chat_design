@@ -22,8 +22,9 @@ class BlurFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    return blur ? BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+    final blurRadius = blur ? 5.0 : 0.0;
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: blurRadius, sigmaY: blurRadius),
       child: Container(
         decoration: BoxDecoration(
           color: (color ?? themeData.colorScheme.background)
@@ -31,13 +32,13 @@ class BlurFilter extends StatelessWidget {
           borderRadius: borderRadius,
           boxShadow: [
             BoxShadow(
-              color: themeData.colorScheme.secondary.withOpacity(0.8),
+              color: themeData.colorScheme.secondary.withOpacity(0.4),
               offset: const Offset(0.0, 24.0),
-              blurRadius: 30.0,
-              spreadRadius: 1.2
+              blurRadius: 28.0,
+              spreadRadius: 1.5
             ),
             BoxShadow(
-              color: themeData.colorScheme.background.withOpacity(0.5),
+              color: themeData.colorScheme.background.withOpacity(0.3),
               offset: const Offset(0.0, 0.0),
               blurRadius: 30.0,
               spreadRadius: 0.9
@@ -47,6 +48,6 @@ class BlurFilter extends StatelessWidget {
         padding: padding,
         child: child,
       ),
-    ) : child;
+    );
   }
 }
